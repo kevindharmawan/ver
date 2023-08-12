@@ -13,6 +13,12 @@ attributes:
     type: "VARCHAR(255)"
 
 analyzers:
+  - name: "label"
+    enabled: true
+    fields:
+      - name: "columnLabel"
+        type: "VARCHAR(255)"
+        
   - name: "cardinality"
     enabled: true
     fields:
@@ -35,6 +41,12 @@ analyzers:
       - name: "minhash"
         type: "BLOB"
         
+  - name: "xsystem"
+    enabled: true
+    fields:
+      - name: "xstructure"
+        type: "VARCHAR(255)"
+        
   - name: "range"
     enabled: true
     fields:
@@ -48,15 +60,3 @@ analyzers:
         type: "DECIMAL(18, 0)"
       - name: "iqr"
         type: "DECIMAL(18, 0)"
-        
-  - name: "xsystem"
-    enabled: true
-    fields:
-      - name: "xstructure"
-        type: "VARCHAR(255)"
-
-  - name: "label"
-    enabled: true
-    fields:
-      - name: "columnLabel"
-        type: "VARCHAR(255)"
