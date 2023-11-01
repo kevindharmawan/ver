@@ -26,8 +26,8 @@ public class ProfileHolder {
         List<Profile> rs = new ArrayList<>();
         Profile wtr = new Profile(
                 -1, "none", "none", "none", "none",
-                "N", "none", 100, 100, 100, "entities",
-                new long[2], "", 50, 50, 50, 0, 0);
+                "N", 100, 100, 100, "entities",
+                new long[2], 50, 50, 50, 0, 0);
         rs.add(wtr);
         return rs;
     }
@@ -65,11 +65,6 @@ public class ProfileHolder {
                         (nr != null) ? nr.getAvg() : 0,
                         (nr != null) ? nr.getMedian() : 0,
                         (nr != null) ? nr.getIQR() : 0);
-                        // na.getNumericalRange(AttributeType.FLOAT).getMinF(),
-                        // na.getNumericalRange(AttributeType.FLOAT).getMaxF(),
-                        // na.getNumericalRange(AttributeType.FLOAT).getAvg(),
-                        // na.getNumericalRange(AttributeType.FLOAT).getMedian(),
-                        // na.getNumericalRange(AttributeType.FLOAT).getIQR());
                 rs.add(wtr);
             } else if (at.equals(AttributeType.INT)) {
                 NumericalAnalysis na = ((NumericalAnalysis) an);

@@ -10,20 +10,27 @@ import java.util.List;
 import ddprofiler.analysis.config.AnalyzerConfig;
 import ddprofiler.analysis.modules.Cardinality;
 import ddprofiler.analysis.modules.CardinalityAnalyzer;
+import ddprofiler.analysis.modules.Entities;
 import ddprofiler.analysis.modules.EntityAnalyzer;
 import ddprofiler.analysis.modules.KMinHash;
-import ddprofiler.analysis.modules.LabelAnalyzer;
-import ddprofiler.analysis.modules.XSystemAnalyzer;
-import ddprofiler.core.config.ProfilerConfig;
-import xsystem.layers.XStructure;
 
 public class TextualAnalyzer implements TextualAnalysis {
 
     private List<DataConsumer> analyzers;
     private CardinalityAnalyzer ca;
     private KMinHash mh;
-    private XSystemAnalyzer xa;
     private EntityAnalyzer ea;
+<<<<<<< HEAD
+
+    private TextualAnalyzer(int pseudoRandomSeed) {
+        analyzers = new ArrayList<>();
+        mh = new KMinHash(pseudoRandomSeed);
+        ca = new CardinalityAnalyzer();
+//        this.ea = ea;
+        analyzers.add(ca);
+        analyzers.add(mh);
+//        analyzers.add(ea);
+=======
     private LabelAnalyzer la;
 
     private TextualAnalyzer(int pseudoRandomSeed, ProfilerConfig pc) {
@@ -47,10 +54,12 @@ public class TextualAnalyzer implements TextualAnalysis {
             la = new LabelAnalyzer(pc);
             analyzers.add(la);
         }
+>>>>>>> aff10a7cee35a7ef0ed44b20946e857e0c226c57
     }
 
-    public static TextualAnalyzer makeAnalyzer(int pseudoRandomSeed, ProfilerConfig pc) {
-        return new TextualAnalyzer(pseudoRandomSeed, pc);
+    public static TextualAnalyzer makeAnalyzer(int pseudoRandomSeed) {
+//        ea2.clear();
+        return new TextualAnalyzer(pseudoRandomSeed);
     }
 
     @Override
@@ -80,6 +89,8 @@ public class TextualAnalyzer implements TextualAnalysis {
         return (mh != null) ? mh.getMH() : null;
     }
 
+<<<<<<< HEAD
+=======
     @Override
     public XStructure getXstructure() {
         return (xa != null) ? xa.getXstructure() : null;
@@ -89,4 +100,5 @@ public class TextualAnalyzer implements TextualAnalysis {
     public String getLabel() {
         return (la != null) ? la.getLabel() : null;
     }
+>>>>>>> aff10a7cee35a7ef0ed44b20946e857e0c226c57
 }
